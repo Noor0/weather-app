@@ -1,0 +1,10 @@
+.Main {
+  padding: 10px;
+  width: min(90vw, 700px);
+}
+
+.buttons-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
