@@ -30,7 +30,7 @@ export default function WeatherCard({
 
   return (
     <Card
-      data-testid="card-container"
+      data-testid={date}
       variant="outlined"
       className={classes.root}
       onClick={onClickHandler}

@@ -21,7 +21,7 @@ describe("<WeatherCard />", () => {
   test("calls onClick with data", () => {
     const onClick = jest.fn();
     render(<WeatherCard date={date} temp={20} scale="c" onClick={onClick} />);
-    fireEvent.click(screen.getByTestId("card-container"));
+    fireEvent.click(screen.getByTestId(date));
     expect(onClick).toBeCalledWith(date);
   });
 });
