@@ -33,7 +33,7 @@ test("calls weather api with right query params", async () => {
   );
 
   expect(fetch).toHaveBeenCalledWith(
-    expect.stringContaining("http://api.openweathermap.org/data/2.5/forecast")
+    expect.stringContaining("https://api.openweathermap.org/data/2.5/forecast")
   );
   expect(fetch).toHaveBeenCalledWith(expect.stringContaining("cnt=99"));
   expect(fetch).toHaveBeenCalledWith(
