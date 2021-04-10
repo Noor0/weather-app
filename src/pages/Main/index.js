@@ -79,7 +79,6 @@ function Main() {
       </div>
       <Carousel
         perPage={3}
-        havePages
         data={forecasts}
         keyExtractor={(data) => data.date}
       >
