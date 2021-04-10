@@ -1,21 +1,11 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { QueryClientProvider, QueryClient } from "react-query";
 
 import useWeatherDataQuery from "../useWeatherDataQuery";
-
-const wrapper = ({ children }) => (
-  <QueryClientProvider client={(() => new QueryClient())()}>
-    {children}
-  </QueryClientProvider>
-);
+import wrapper from "utils/test/ReactQueryClientProvider";
 
 const mockData = {
   list: [{ dt_text: "2020-08-04 18:00:00", main: { temp: 277 } }],
 };
-
-beforeAll(() => {
-  jest.useFakeTimers();
-});
 
 beforeEach(() => {
   fetch.resetMocks();
@@ -23,7 +13,7 @@ beforeEach(() => {
 
 test("returns correct default data", () => {
   fetch.mockResponse("{}");
-  const { result, unmount, waitFor } = renderHook(
+  const { result, unmount } = renderHook(
     () => useWeatherDataQuery([]),
     {
       wrapper,
@@ -37,7 +27,7 @@ test("returns correct default data", () => {
 test("calls weather api with right query params", async () => {
   fetch.mockResponse(JSON.stringify(mockData));
 
-  const { result, unmount, waitFor } = renderHook(
+  const { result, waitFor } = renderHook(
     () => useWeatherDataQuery([], { location: "DAMN_LOCATION", count: 99 }),
     { wrapper }
   );
