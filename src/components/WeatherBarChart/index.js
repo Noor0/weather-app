@@ -22,7 +22,7 @@ const getTimeIn12HourFormat = (data) => format(new Date(data), "h:mm aa");
 export default function WeatherBarChart({
   color = "primary",
   data,
-  scale,
+  scale = "",
   ...props
 }) {
   const classes = useStyles();

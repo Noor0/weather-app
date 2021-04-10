@@ -28,7 +28,12 @@ export default function WeatherCard({
   }, [date, onClick]);
 
   return (
-    <Card variant="outlined" className={classes.root} onClick={onClickHandler}>
+    <Card
+      data-testid="card-container"
+      variant="outlined"
+      className={classes.root}
+      onClick={onClickHandler}
+    >
       <CardContent>
         <p>
           Temp: <br />{" "}

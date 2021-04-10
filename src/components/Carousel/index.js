@@ -48,14 +48,14 @@ export default function Carousel(props) {
     <>
       <div className={classes.buttonsContainer}>
         {page > 0 ? (
-          <Button onClick={() => setPage((page) => --page)} variant="outlined">
+          <Button data-testid="left" onClick={() => setPage((page) => --page)} variant="outlined">
             <ChevronLeftIcon fontSize="large" />
           </Button>
         ) : (
           <span />
         )}
         {page < totalPages ? (
-          <Button onClick={() => setPage((page) => ++page)} variant="outlined">
+          <Button data-testid="right" onClick={() => setPage((page) => ++page)} variant="outlined">
             <ChevronRightIcon fontSize="large" />
           </Button>
         ) : (
@@ -63,16 +63,14 @@ export default function Carousel(props) {
         )}
       </div>
       <div className={classes.contentContainer}>
-        {props.data
-          .slice(startIndex, endIndex)
-          .map((data) =>
-            React.Children.map(props.children, (Child) =>
-              React.cloneElement(Child, {
-                ...data,
-                key: props.keyExtractor(data),
-              })
-            )
-          )}
+        {props.data.slice(startIndex, endIndex).map((data) =>
+          React.Children.map(props.children, (Child) =>
+            React.cloneElement(Child, {
+              ...data,
+              key: props.keyExtractor && props.keyExtractor(data),
+            })
+          )
+        )}
       </div>
     </>
   );

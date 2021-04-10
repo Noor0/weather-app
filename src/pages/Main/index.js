@@ -6,8 +6,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
 
 import WeatherCard from "components/WeatherCard";
-import Carousel from "components/Carousel";
-import WeatherBarChart from "components/WeatherBarChart";
+import Carousel from "components/Carousel/index.js";
+import WeatherBarChart from "components/WeatherBarChart/index.js";
 
 import useWeatherDataQuery from "hooks/api/useWeatherDataQuery";
 

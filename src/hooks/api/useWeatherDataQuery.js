@@ -5,7 +5,7 @@ const defaultResponse = { list: [] };
 
 export default function useWeatherDataQuery(
   keys,
-  variables,
+  variables = {},
   options = { refetchOnWindowFocus: false }
 ) {
   const { data = defaultResponse, ...response } = useQuery(
@@ -13,7 +13,7 @@ export default function useWeatherDataQuery(
     () =>
       fetch(
         `http://api.openweathermap.org/data/2.5/forecast?q=${variables.location}&APPID=${REACT_APP_OPEN_WEATHER_KEY}&cnt=${variables.count}`
-      ).then((res) => res.json()),
+      ).then(res => res.json()),
     options
   );
   return { ...response, data };
