@@ -15,12 +15,9 @@ const useStyles = makeStyles(() => {
     contentContainer: {
       overflowX: "auto",
       display: "flex",
-      padding: "20px 0px",
+      padding: "20px 3px",
       "& > *:not(:first-child)": {
         marginLeft: "20px",
-      },
-      "& > *:last-child": {
-        marginRight: "20px",
       },
     },
   };

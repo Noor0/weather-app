@@ -7,8 +7,9 @@ const useStyles = makeStyles({
   root: {
     width: "clamp(125px, 30vw, 220px)",
     minWidth: "125px",
-    border: ({ selected }) =>
-      selected ? "2px solid black" : "1px solid silver",
+    border: "none",
+    boxShadow: ({ selected }) =>
+      selected ? "0 0 0 2px black" : "0 0 0 1px silver",
     cursor: "pointer",
   },
 });
