@@ -1,3 +1,6 @@
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "hooks/api";
+
 import Main from "pages/Main";
 
 import "./App.css";
@@ -5,7 +8,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Main />
+      <QueryClientProvider client={queryClient}>
+        <Main />
+      </QueryClientProvider>
     </div>
   );
 }
