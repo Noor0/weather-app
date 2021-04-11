@@ -49,7 +49,7 @@ function Main() {
 
   if (isLoading) {
     return (
-      <Backdrop open>
+      <Backdrop open data-testid="loading">
         <CircularProgress />
       </Backdrop>
     );
