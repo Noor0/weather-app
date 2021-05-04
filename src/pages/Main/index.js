@@ -19,6 +19,7 @@ import {
 } from "./transformers";
 
 import "./Main.css";
+import { Button } from "@material-ui/core";
 
 const defaultQuery = {
   location: "Munich,de",
@@ -31,7 +32,7 @@ function Main() {
   const [scale, setScale] = React.useState("c");
   const [selectedDate, selectDate] = React.useState();
 
-  const { data, isLoading } = useWeatherDataQuery(
+  const { data, isLoading, refetch } = useWeatherDataQuery(
     [defaultQuery.location, defaultQuery.count],
     defaultQuery
   );
@@ -79,6 +80,7 @@ function Main() {
             label="Fahrenheit"
           />
         </RadioGroup>
+        <Button onClick={refetch}>Refresh</Button>
       </div>
       <Carousel
         perPage={isSmallScreen ? 1 : 3}
