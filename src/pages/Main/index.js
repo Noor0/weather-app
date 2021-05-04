@@ -4,6 +4,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Backdrop from "@material-ui/core/Backdrop";
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 import WeatherCard from "components/WeatherCard";
 import Carousel from "components/Carousel/index.js";
@@ -25,6 +26,8 @@ const defaultQuery = {
 };
 
 function Main() {
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
+
   const [scale, setScale] = React.useState("c");
   const [selectedDate, selectDate] = React.useState();
 
@@ -78,7 +81,7 @@ function Main() {
         </RadioGroup>
       </div>
       <Carousel
-        perPage={3}
+        perPage={isSmallScreen ? 1 : 3}
         data={forecasts}
         keyExtractor={(data) => data.date}
       >
