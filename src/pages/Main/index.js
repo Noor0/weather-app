@@ -84,6 +84,7 @@ function Main() {
         perPage={isSmallScreen ? 1 : 3}
         data={forecasts}
         keyExtractor={(data) => data.date}
+        alwaysSelectFirstItem
       >
         <WeatherCard scale={scale} onClick={selectDate} />
       </Carousel>

@@ -20,6 +20,7 @@ export default function WeatherCard({
   onClick,
   temp,
   scale,
+  autoSelect,
   ...props
 }) {
   const classes = useStyles({ selected });
@@ -27,6 +28,10 @@ export default function WeatherCard({
   const onClickHandler = React.useCallback(() => {
     onClick(date);
   }, [date, onClick]);
+
+  React.useEffect(() => {
+    if (autoSelect) onClickHandler();
+  }, []);
 
   return (
     <Card
